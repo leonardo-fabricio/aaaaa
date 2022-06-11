@@ -7,19 +7,12 @@ import styles from "../styles/Home.module.css";
 
 const Home: NextPage = () => {
   useEffect(() => {
-    console.log("UF");
-    teste()
+    fetch('https://adminusa.pechinchou.com.br/api/produto', { 
+      method: 'get',
+      headers: new Headers({"X-Api-Key": "y5unbXq2.SGdrAalazzngpSP4KSquMUWBFqEGq5gV"})
+    }).catch((error)=> console.log(error));
   }, []);
 
-  async function teste() {
-    try {
-      await axios.get("http://127.0.0.1:8000", {
-        headers: { "X-Api-Key": "lBKBIMct.sjINy9zltI1glXso4YBSpuc3BJe4AIxu" },
-      });
-    } catch (erro) {
-      console.log(erro);
-    }
-  }
   return (
     <div className={styles.container}>
       <Head>
