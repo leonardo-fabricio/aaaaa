@@ -1,14 +1,25 @@
-import axios from 'axios'
-import type { NextPage } from 'next'
-import Head from 'next/head'
-import Image from 'next/image'
-import { useEffect } from 'react'
-import styles from '../styles/Home.module.css'
+import axios from "axios";
+import type { NextPage } from "next";
+import Head from "next/head";
+import Image from "next/image";
+import { useEffect, useState } from "react";
+import styles from "../styles/Home.module.css";
 
 const Home: NextPage = () => {
-  useEffect(()=>{
-    axios.get("https://adminusa.pechinchou.com.br/api/v2/produto/", {headers: {"X-Api-Key": "y5unbXq2.SGdrAalazzngpSP4KSquMUWBFqEGq5gV"}})
-  },[])
+  useEffect(() => {
+    console.log("UF");
+    teste()
+  }, []);
+
+  async function teste() {
+    try {
+      await axios.get("http://127.0.0.1:8000", {
+        headers: { "X-Api-Key": "lBKBIMct.sjINy9zltI1glXso4YBSpuc3BJe4AIxu" },
+      });
+    } catch (erro) {
+      console.log(erro);
+    }
+  }
   return (
     <div className={styles.container}>
       <Head>
@@ -23,7 +34,7 @@ const Home: NextPage = () => {
         </h1>
 
         <p className={styles.description}>
-          Get started by editing{' '}
+          Get started by editing{" "}
           <code className={styles.code}>pages/index.tsx</code>
         </p>
 
@@ -64,14 +75,14 @@ const Home: NextPage = () => {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Powered by{' '}
+          Powered by{" "}
           <span className={styles.logo}>
             <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
           </span>
         </a>
       </footer>
     </div>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;
