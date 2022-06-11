@@ -1,9 +1,14 @@
+import axios from 'axios'
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
+import { useEffect } from 'react'
 import styles from '../styles/Home.module.css'
 
 const Home: NextPage = () => {
+  useEffect(()=>{
+    axios.get("https://adminusa.pechinchou.com.br/api/v2/produto/", {headers: {"X-Api-Key": "y5unbXq2.SGdrAalazzngpSP4KSquMUWBFqEGq5gV"}})
+  },[])
   return (
     <div className={styles.container}>
       <Head>
